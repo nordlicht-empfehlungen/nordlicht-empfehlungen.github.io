@@ -1,0 +1,312 @@
+<!--
+  ============================================================
+  TEASER-CARD für die Startseite (index.html)
+  Einfach in den <section id="artikel">-Block einfügen,
+  z.B. direkt nach dem "Balkon-Grillen"-Post.
+  ============================================================
+
+  <div class="post">
+    <div class="meta">Saisonal · Wassersport</div>
+    <h3>Aufblasbares Kajak für Einsteiger: Was das Intex Challenger taugt (und was nicht)</h3>
+    <p>
+      Ein Set für unter 90 €, komplett mit Alu-Paddel und Pumpe — ehrlich
+      geprüft, für wen sich das lohnt und wo die Grenzen liegen.
+    </p>
+    <span class="tag">kajak</span><span class="tag">wassersport</span>
+    <p style="margin-top:14px;"><a href="kajak-artikel.html">Weiterlesen →</a></p>
+  </div>
+
+  ============================================================
+  Diese Datei selbst (unten) ist die vollständige Artikelseite,
+  im gleichen Design wie index.html — als kajak-artikel.html
+  neben deine index.html legen.
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aufblasbares Kajak für Einsteiger: Intex Challenger im Check — Nordlicht Empfehlungen</title>
+<style>
+  :root {
+    --bg: #0f1210;
+    --panel: #171b18;
+    --card: #1c211d;
+    --text: #e4e6e0;
+    --dim: #94a091;
+    --sun: #e8a33d;
+    --sun-dim: #6b5223;
+    --teal: #4d9b8f;
+    --mono: 'JetBrains Mono', 'Fira Code', ui-monospace, Consolas, monospace;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+    --serif: Georgia, 'Iowan Old Style', serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+  }
+  a { color: var(--sun); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .topbar {
+    background: var(--panel);
+    border-bottom: 1px solid #262b24;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .brand {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: #fff;
+    letter-spacing: 0.01em;
+  }
+  .brand span { color: var(--sun); }
+  .topbar nav a {
+    color: var(--dim);
+    font-size: 14px;
+    margin-left: 22px;
+  }
+  .topbar nav a:hover { color: var(--sun); }
+
+  article {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 60px 24px 40px;
+  }
+  .back-link {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--dim);
+    display: inline-block;
+    margin-bottom: 28px;
+  }
+  .back-link:hover { color: var(--sun); }
+
+  .meta-line {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 14px;
+  }
+  .meta-line .ad {
+    color: var(--sun);
+    margin-left: 10px;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+    line-height: 1.25;
+    color: #fff;
+    margin: 0 0 28px;
+  }
+
+  article h2 {
+    font-family: var(--serif);
+    color: #fff;
+    font-size: 1.3rem;
+    margin-top: 38px;
+    margin-bottom: 12px;
+  }
+
+  article p {
+    color: var(--dim);
+    font-size: 1rem;
+    margin: 0 0 16px;
+  }
+
+  article strong { color: var(--text); }
+
+  article ul {
+    color: var(--dim);
+    padding-left: 20px;
+    margin: 0 0 20px;
+  }
+  article ul li { margin-bottom: 8px; }
+
+  .fact-box {
+    background: var(--card);
+    border: 1px solid #262b24;
+    border-radius: 8px;
+    padding: 20px 22px;
+    margin: 28px 0;
+    font-size: 0.95rem;
+  }
+  .fact-box .fact-title {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+  .fact-box table { width: 100%; border-collapse: collapse; }
+  .fact-box td { padding: 5px 0; color: var(--dim); vertical-align: top; }
+  .fact-box td:first-child { color: var(--text); width: 40%; }
+
+  .cta {
+    display: inline-block;
+    background: var(--sun);
+    color: #171b18 !important;
+    font-weight: 600;
+    padding: 12px 26px;
+    border-radius: 6px;
+    margin: 10px 0 30px;
+    text-decoration: none !important;
+  }
+  .cta:hover { background: #f0b352; }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    background: #232922;
+    color: var(--sun);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-top: 4px;
+    margin-right: 6px;
+  }
+
+  .disclosure {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--dim);
+    border-top: 1px solid #262b24;
+    padding-top: 18px;
+    margin-top: 40px;
+  }
+
+  footer {
+    border-top: 1px solid #262b24;
+    margin-top: 40px;
+    padding: 30px 24px 60px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 13px;
+    color: var(--dim);
+    font-family: var(--mono);
+  }
+  footer a { color: var(--dim); }
+  footer a:hover { color: var(--sun); }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="brand">Nordlicht<span>.</span> Empfehlungen</div>
+    <nav>
+      <a href="index.html#kategorien">kategorien</a>
+      <a href="index.html#artikel">artikel</a>
+      <a href="index.html#about">über</a>
+      <a href="index.html#impressum">impressum</a>
+    </nav>
+  </div>
+
+  <article>
+    <a class="back-link" href="index.html#artikel">← zurück zur übersicht</a>
+
+    <div class="meta-line">Saisonal · Wassersport <span class="ad">// Werbung</span></div>
+    <h1>Aufblasbares Kajak für Einsteiger: Was das Intex Challenger taugt (und was nicht)</h1>
+
+    <p>
+      Wer im Sommer aufs Wasser will, ohne gleich ein festes Kajak zu kaufen und
+      irgendwo unterzubringen, landet früher oder später bei aufblasbaren Modellen.
+      Das <strong>Intex Challenger Kajak-Set</strong> ist dabei eines der meistgekauften
+      auf Amazon.de — mit über 4.600 Bewertungen und einem Schnitt von 4,1 von 5 Sternen.
+      Grund genug, es sich genauer anzuschauen.
+    </p>
+
+    <!--
+      HIER den <iframe>-Code von Amazon SiteStripe einfügen
+      (Associates-Konto → Produktseite → SiteStripe-Leiste →
+      "Bild" oder "Bild + Text" → Code kopieren)
+    -->
+    <div class="product-image-slot" style="text-align:center; margin: 24px 0;">
+      <!-- <iframe style="width:200px;height:200px;" ... src="//ws-eu.amazon-adsystem.com/widgets/..."></iframe> -->
+    </div>
+
+    <div class="fact-box">
+      <div class="fact-title">// auf einen blick</div>
+      <table>
+        <tr><td>Preis</td><td>84,99 €</td></tr>
+        <tr><td>Bewertung</td><td>4,1 / 5 (4.618 Bewertungen)</td></tr>
+        <tr><td>Maße</td><td>274 × 76 × 33 cm</td></tr>
+        <tr><td>Kapazität</td><td>1 Person</td></tr>
+        <tr><td>Im Set enthalten</td><td>Kajak, Alu-Paddel, Handpumpe, Reparaturflicken</td></tr>
+      </table>
+    </div>
+
+    <h2>Was im Set steckt</h2>
+    <p>
+      Das Challenger-Set kommt komplett: das aufblasbare Kajak selbst, ein zerlegbares
+      Aluminium-Paddel, eine Handpumpe sowie ein Reparaturflicken-Set für den Fall,
+      dass mal ein kleines Loch entsteht. Für den Einstieg muss man also nichts nachkaufen.
+    </p>
+
+    <h2>Für wen sich das lohnt</h2>
+    <p>
+      Das Kajak ist als 1-Personen-Boot ausgelegt und eignet sich gut für ruhige
+      Gewässer — Seen, langsam fließende Flüsse, geschützte Buchten. Wer regelmäßig
+      auf bewegtem Wasser oder im Küstenbereich unterwegs sein will, sollte eher zu
+      einem stabileren Hartschalen- oder Touring-Kajak greifen. Für gelegentliche
+      Ausflüge, Campingtrips oder als Zweitboot für den Kofferraum ist es dagegen
+      eine unkomplizierte Lösung.
+    </p>
+
+    <h2>Vorteile in der Praxis</h2>
+    <ul>
+      <li>Lässt sich zusammengefaltet in einer Tasche verstauen — kein Dachträger nötig</li>
+      <li>Aufbauzeit liegt bei etwa 10 Minuten mit der Handpumpe</li>
+      <li>Niedriger Preis als guter Einstieg, um zu testen, ob Kajakfahren das eigene Ding ist</li>
+    </ul>
+
+    <h2>Wo es an Grenzen stößt</h2>
+    <ul>
+      <li>Aufblasbare Kajaks liegen tiefer im Wasser und reagieren empfindlicher auf Wind</li>
+      <li>Sitzposition bei längeren Touren (mehrere Stunden) für manche weniger komfortabel</li>
+      <li>Bei Fels- oder Kiesufern etwas Vorsicht beim Ein-/Aussteigen wegen der Außenhaut</li>
+    </ul>
+
+    <h2>Fazit</h2>
+    <p>
+      Für den gelegentlichen Einsatz auf ruhigem Wasser, als Einstieg ins Kajakfahren
+      oder als platzsparende Ergänzung fürs Reisegepäck ist das Intex Challenger Set
+      eine solide, unaufgeregte Wahl. Wer mehr vorhat als gemütliche Sommernachmittage
+      auf dem See, wird über kurz oder lang zu einem robusteren Modell wechseln wollen —
+      aber genau dafür ist ein günstiger Einstieg ja da.
+    </p>
+
+    <a class="cta" href="https://www.amazon.de/Challanger-aufblasbar-274x76x33cm-Alupaddel-68305NP/dp/B0749FLYR8?linkCode=ll2&tag=nordlicht0a-21&linkId=52596ad599b8c6e966e0852d9ec7074e&ref_=as_li_ss_tl" rel="sponsored nofollow" target="_blank">Zum Angebot bei Amazon →</a>
+
+    <div>
+      <span class="tag">kajak</span><span class="tag">wassersport</span><span class="tag">sommer</span>
+    </div>
+
+    <div class="disclosure">
+      * Affiliate-Link: Wenn du darüber kaufst, bekomme ich eine kleine Provision.
+      Für dich ändert sich am Preis nichts.
+    </div>
+  </article>
+
+  <footer>
+    Angaben gemäß § 5 TMG · Wolfgang Thomas Heiter · Septimerstraße 10B, 13407 Berlin<br>
+    <a href="index.html#impressum">Impressum & Kontakt</a>
+  </footer>
+
+</body>
+</html>
