@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nordlicht Empfehlungen — Gut ausgesucht, für jede Jahreszeit</title>
+<style>
+  :root {
+    --bg: #0f1210;
+    --panel: #171b18;
+    --card: #1c211d;
+    --text: #e4e6e0;
+    --dim: #94a091;
+    --sun: #e8a33d;
+    --sun-dim: #6b5223;
+    --teal: #4d9b8f;
+    --mono: 'JetBrains Mono', 'Fira Code', ui-monospace, Consolas, monospace;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+    --serif: Georgia, 'Iowan Old Style', serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+  }
+  a { color: var(--sun); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* --- Top bar --- */
+  .topbar {
+    background: var(--panel);
+    border-bottom: 1px solid #262b24;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .brand {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: #fff;
+    letter-spacing: 0.01em;
+  }
+  .brand span { color: var(--sun); }
+  .topbar nav a {
+    color: var(--dim);
+    font-size: 14px;
+    margin-left: 22px;
+  }
+  .topbar nav a:hover { color: var(--sun); }
+
+  /* --- Hero --- */
+  .hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 70px 24px 50px;
+  }
+  .season-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sun);
+    background: rgba(232,163,61,0.08);
+    border: 1px solid var(--sun-dim);
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    line-height: 1.2;
+    margin: 0 0 18px;
+    color: #fff;
+    max-width: 18ch;
+  }
+  .hero p.lead {
+    color: var(--dim);
+    font-size: 1.05rem;
+    max-width: 56ch;
+  }
+
+  section { max-width: 900px; margin: 0 auto; padding: 36px 24px; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+  h2 { font-family: var(--serif); color: #fff; font-size: 1.6rem; margin-top: 4px; }
+
+  /* --- Category grid --- */
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-top: 20px;
+  }
+  .cat {
+    background: var(--card);
+    border: 1px solid #262b24;
+    border-radius: 8px;
+    padding: 18px;
+    text-align: center;
+  }
+  .cat .icon { font-size: 1.6rem; margin-bottom: 8px; }
+  .cat .name { color: #fff; font-size: 0.95rem; font-weight: 600; }
+  .cat .count { color: var(--dim); font-size: 0.8rem; margin-top: 4px; }
+
+  /* --- Posts --- */
+  .post {
+    background: var(--card);
+    border: 1px solid #262b24;
+    border-radius: 8px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+  }
+  .post .meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .post h3 { margin: 0 0 8px; color: #fff; font-size: 1.15rem; font-family: var(--serif); }
+  .post p { color: var(--dim); margin: 0; font-size: 0.96rem; }
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    background: #232922;
+    color: var(--sun);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-top: 12px;
+    margin-right: 6px;
+  }
+
+  .about-box {
+    background: var(--panel);
+    border-radius: 8px;
+    padding: 24px;
+    font-size: 0.95rem;
+    color: var(--dim);
+  }
+  .about-box strong { color: var(--text); }
+
+  footer {
+    border-top: 1px solid #262b24;
+    margin-top: 40px;
+    padding: 30px 24px 60px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 13px;
+    color: var(--dim);
+    font-family: var(--mono);
+  }
+  footer a { color: var(--dim); }
+  footer a:hover { color: var(--sun); }
+
+  @media (max-width: 600px) {
+    .topbar nav a { margin-left: 12px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="brand">Nordlicht<span>.</span> Empfehlungen</div>
+    <nav>
+      <a href="#kategorien">kategorien</a>
+      <a href="#artikel">artikel</a>
+      <a href="#about">über</a>
+      <a href="#impressum">impressum</a>
+    </nav>
+  </div>
+
+  <div class="hero">
+    <div class="season-tag">☀ jetzt aktuell: sommer 2026</div>
+    <h1>Gut ausgesucht, für jede Jahreszeit.</h1>
+    <p class="lead">
+      Ehrliche Empfehlungen zu dem, was gerade gebraucht wird — von
+      Strandzubehör im Sommer bis zu Technik und Sicherheit fürs
+      ganze Jahr. Kein Hype, nur was wirklich taugt.
+      
+    </p>
+  </div>
+
+  <section id="kategorien">
+    <div class="eyebrow">// rubriken</div>
+    <h2>Was hier zu finden ist</h2>
+    <div class="cat-grid">
+      <div class="cat"><div class="icon">🏖️</div><div class="name">Saisonal</div><div class="count">Sommer, Reise, Outdoor</div></div>
+      <div class="cat"><div class="icon">💻</div><div class="name">Technik</div><div class="count">Hardware, Gadgets</div></div>
+      <div class="cat"><div class="icon">🔒</div><div class="name">IT-Security</div><div class="count">Home-Lab, Linux</div></div>
+      <div class="cat"><div class="icon">🏠</div><div class="name">Haushalt</div><div class="count">Praktisches für zuhause</div></div>
+    </div>
+  </section>
+
+  <section id="artikel">
+    <div class="eyebrow">// gerade relevant</div>
+    <h2>Sommer-Artikel</h2>
+
+    <div class="post">
+      <div class="meta">Saisonal · Strand & Outdoor</div>
+      <h3>Strandtag ohne Stress: die 7 Dinge, die wirklich helfen</h3>
+      <p>
+        Von der Kühltasche, die tatsächlich kühlt, bis zum Sonnenschirm,
+        der auch bei Wind stehen bleibt — eine Auswahl, die sich in der
+        Praxis bewährt hat statt nur gut auszusehen.
+      </p>
+      <span class="tag">strand</span><span class="tag">sommer</span>
+    </div>
+
+    <div class="post">
+      <div class="meta">Saisonal · Strand & Outdoor</div>
+      <h3>Pop-Up-Strandzelt im Alltagstest: Glymnis UPF 50+</h3>
+      <p>
+        Ein Wurf, ein Klick, fertig — zumindest in der Theorie. Das
+        Glymnis-Zelt geht als Pop-Up-Konstruktion tatsächlich in Sekunden
+        auf, bietet UPF-50+-Schutz und eine Tür mit Reißverschluss für
+        etwas Privatsphäre. Beim Zusammenlegen braucht es dagegen etwas
+        Übung, und bei starkem Wind sollte man die mitgelieferten Heringe
+        und Spannleinen konsequent nutzen — für einen ruhigen Nachmittag
+        am Strand oder im Garten reicht es aber allemal.
+      </p>
+      <span class="tag">strandzelt</span><span class="tag">sommer</span>
+      <p style="margin-top:14px;"><a href="https://www.amazon.de/dp/B0CNT63FYB?_encoding=UTF8&th=1&linkCode=ll2&tag=nordlicht0a-21&linkId=0028e4c6d8d9ab780fd443788eec0890&ref_=as_li_ss_tl">Zum Angebot →</a></p>
+    </div>
+
+    <div class="post">
+      <div class="meta">Saisonal · Reise</div>
+      <h3>Handgepäck-Check: was 2026 wirklich noch durch die Kontrolle geht</h3>
+      <p>
+        Powerbanks, Kühlpacks, Flüssigkeiten — die Regeln ändern sich
+        schneller als man denkt. Ein aktueller Überblick vor dem
+        nächsten Flug.
+      </p>
+      <span class="tag">reise</span><span class="tag">packliste</span>
+    </div>
+
+    <div class="post">
+      <div class="meta">Saisonal · Grillen</div>
+      <h3>Balkon-Grillen in Berlin: was erlaubt ist und was sich lohnt</h3>
+      <p>
+        Elektrogrill vs. Kohle, Mietvertrag-Fallstricke und die Geräte,
+        die auch auf 4 qm Balkon noch Sinn ergeben.
+      </p>
+      <span class="tag">grillen</span><span class="tag">berlin</span>
+    </div>
+<div class="post">
+  <div class="meta">Saisonal · Wassersport</div>
+  <h3>Aufblasbares Kajak für Einsteiger: Was das Intex Challenger taugt (und was nicht)</h3>
+  <p>
+    Ein Set für unter 90 €, komplett mit Alu-Paddel und Pumpe — ehrlich
+    geprüft, für wen sich das lohnt und wo die Grenzen liegen.
+  </p>
+  <span class="tag">kajak</span><span class="tag">wassersport</span>
+  <p style="margin-top:14px;"><a href="kajak-artikel.html">Weiterlesen →</a></p>
+</div>
+    <div class="eyebrow" style="margin-top:36px;">// aus dem home-lab</div>
+    <h2>Technik & Security</h2>
+
+    <div class="post">
+      <div class="meta">Home-Lab · Linux</div>
+      <h3>Swap auf Btrfs: warum die einfache Lösung nicht funktioniert</h3>
+      <p>
+        Ein dediziertes Subvolume war am Ende der einzige saubere Weg,
+        um Swap auf einem Btrfs-System zum Laufen zu bringen.
+      </p>
+      <span class="tag">linux</span><span class="tag">btrfs</span>
+    </div>
+
+    <div class="post">
+      <div class="meta">Home-Lab · Netzwerk</div>
+      <h3>Suricata auf schwacher Hardware: geht das überhaupt?</h3>
+      <p>
+        Ein altes Laptop mit HDD ist kein Server — trotzdem läuft ein
+        IDS, wenn man ZRAM richtig priorisiert.
+      </p>
+      <span class="tag">suricata</span><span class="tag">performance</span>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="eyebrow">// über nordlicht</div>
+    <h2>Wer hier schreibt</h2>
+    <div class="about-box">
+      <strong>Berlin, Deutschland.</strong> Hintergrund in physischer Sicherheit,
+      aktuell im Übergang zur IT-Security — mit einem Blick für praktische,
+      alltagstaugliche Empfehlungen jenseits eines einzelnen Themas. Was hier
+      landet, ist selbst geprüft oder recherchiert, nicht einfach übernommen.
+    </div>
+  </section>
+
+  <footer id="impressum">
+    <div class="eyebrow" style="margin-bottom:14px;">// impressum</div>
+    <div>
+      Angaben gemäß § 5 TMG<br>
+      Wolfgang Thomas Heiter<br>
+      Septimerstraße 10B<br>
+      13407 Berlin<br><br>
+      Kontakt:<br>
+      E-Mail: konakt-nordlicht-empfehlungen@proton.me<br><br>
+      Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV: Wolfgang Thomas Heiter<br><br>
+      Diese Website ist Teilnehmer des Partnerprogramms von Amazon EU S.à.r.l.
+      und Partner des Amazon-Werbeprogramms, das zur Bereitstellung eines
+      Mediums für Websites konzipiert wurde, mittels dessen durch die
+      Platzierung von Werbeanzeigen und Links zu Amazon.de Werbekostenerstattung
+      verdient werden kann.
+    </div>
+  </footer>
+
+</body>
+</html>
